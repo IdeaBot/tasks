@@ -2,6 +2,7 @@ from libs import command
 from libs import dataloader, embed
 import re, asyncio
 from os import path
+import os
 
 todoFiles=dict()
 TODO_LOC = "todosavedir"
@@ -34,6 +35,8 @@ Where
     def __init__(self, saveloc="./", **kwargs):
         super().__init__(**kwargs)
         self.saveloc = self.config[TODO_LOC]
+        if not os.path.isdir(self.saveloc):
+            os.mkdir(self.saveloc)
 
     def collect_args(self, message):
         return re.search(r'\btodo(?:\s+(add|remove|complete|finish|list))?(?:\s*(.+))?', message.content, re.I)
