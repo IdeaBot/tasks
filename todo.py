@@ -95,7 +95,7 @@ Where
         if op_flag=='remove':
             # TODO: check for permissions to edit list_name before removing task
             index = self.get_index_for_task(task, todoFiles[list_name])
-            if index==-1:
+            if index==-1 or index>=len(todoFiles[list_name].content):
                 msg_content = "I'm sorry, I can't find `%s`." % task
             else:
                 del(todoFiles[list_name].content[index])
@@ -125,13 +125,13 @@ Where
         for i in range(len(todoFile.content)):
             if todoFile.content[i]==task:
                 return i
-        for i in range(len(todoFile.content)):
-            if task in todoFile.content[i]:
-                return i
         try:
             return int(task)-1
         except ValueError:
             pass
+        for i in range(len(todoFile.content)):
+            if task in todoFile.content[i]:
+                return i
         return -1
 
     def shutdown(self):
