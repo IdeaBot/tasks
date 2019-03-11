@@ -2,11 +2,13 @@ from libs import command
 import re
 
 class Command(command.DirectOnlyCommand):
-    '''Cancel a reminder
+    '''Cancel an upcoming reminder
 
 **Usage**
+Cancel the next reminder
 ```@Idea cancel next reminder```
 
+Cancel all upcoming reminders
 ```@Idea cancel all reminders``` '''
 
     def matches(self, message):

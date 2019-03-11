@@ -24,6 +24,12 @@ Where
 **NOTE:** values for `<time>` must be positive whole numbers with a unit (days, hours, minutes, etc.)
 **NOTE2:** [thing] means thing is optional
 
+Cancel a reminder
+```@Idea cancel next reminder```
+
+For more info on canceling an upcoming reminder, do
+```@Idea help reminder_cancel```
+
 **Example**
 `@Idea remind me to "do my homework" in 2 days and 3 hours`
 `@Idea remind me to "Wake up" in 8 hours daily` '''

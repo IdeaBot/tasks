@@ -17,6 +17,24 @@ complete INTEGER NOT NULL DEFAULT 0
 
 
 class Plugin(plugin.ThreadedPlugin, plugin.OnReadyPlugin):
+    '''Reminds you with a message
+
+**Usage**
+Create a reminder
+```@Idea remind me to "<task>" in <time> ```
+Where
+**`<task>`** is the description of the task you want to be reminded about
+**`<time>`** is the time between now and the time you want to be reminded
+
+For more info on creating a reminder, do
+```@Idea help reminder```
+
+Cancel the next reminder
+```@Idea cancel next reminder```
+
+For more info on canceling an upcoming reminder, do
+```@Idea help reminder_cancel``` '''
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, should_spawn_thread=False, **kwargs)
 
